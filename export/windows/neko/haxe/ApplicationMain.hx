@@ -57,8 +57,8 @@ class ApplicationMain {
 				
 				#if mobile
 				
-				forceWidth = 640;
-				forceHeight = 360;
+				forceWidth = 960;
+				forceHeight = 540;
 				
 				container = new flash.display.Sprite ();
 				barA = new flash.display.Sprite ();
@@ -127,7 +127,7 @@ class ApplicationMain {
 				}
 				
 			},
-			640, 360, 
+			960, 540, 
 			60, 
 			0,
 			(true ? flash.Lib.HARDWARE : 0) |
@@ -248,13 +248,13 @@ class ScaledStage extends flash.display.Stage {
 	
 	private override function get_stageHeight ():Int {
 		
-		return 360;
+		return 540;
 	
 	}
 	
 	private override function get_stageWidth ():Int {
 		
-		return 640;
+		return 960;
 	
 	}
 	
@@ -325,11 +325,11 @@ class ApplicationMain {
 		wx.App.boot (function () {
 			
 			
-			frame = wx.Frame.create (null, null, "HaxeFlixel Game", null, { width: 640, height: 360 });
+			frame = wx.Frame.create (null, null, "HaxeFlixel Game", null, { width: 960, height: 540 });
 			
 			
 			#if openfl
-			var stage = wx.NMEStage.create (frame, null, null, { width: 640, height: 360 });
+			var stage = wx.NMEStage.create (frame, null, null, { width: 960, height: 540 });
 			#end
 			
 			var hasMain = false;
@@ -515,7 +515,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "2",
+			build: "3",
 			company: "Trampihl Soft",
 			file: "haxeflixel-game",
 			fps: 60,
@@ -533,13 +533,13 @@ class ApplicationMain {
 					display: 0,
 					fullscreen: false,
 					hardware: true,
-					height: 360,
+					height: 540,
 					parameters: "{}",
 					resizable: true,
 					stencilBuffer: false,
 					title: "HaxeFlixel Game",
 					vsync: true,
-					width: 640,
+					width: 960,
 					x: null,
 					y: null
 				},
@@ -549,7 +549,7 @@ class ApplicationMain {
 		
 		#if (js && html5)
 		#if (munit || utest)
-		openfl.Lib.embed (null, 640, 360, "null");
+		openfl.Lib.embed (null, 960, 540, "null");
 		#end
 		#else
 		create ();
