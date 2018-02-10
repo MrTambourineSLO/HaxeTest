@@ -3,6 +3,7 @@ package;
 import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxG;
+import flixel.math.FlxMath;
 
 class Player extends  FlxSprite
 {
@@ -48,6 +49,7 @@ class Player extends  FlxSprite
     override public function update(elapsed:Float) : Void
     {
         move();
+        animate();
         super.update(elapsed);
     }
 
@@ -92,6 +94,35 @@ class Player extends  FlxSprite
         if((velocity.y < 0) && (FlxG.keys.justReleased.C) )
         {
             velocity.y = velocity.y * 0.5;
+        }
+
+    }
+    private function animate()
+    {
+        if((velocity.y <= 0) && !(isTouching(FlxObject.FLOOR)))
+        {
+            animation.play("jump");
+        }
+        else if (velocity.y > 0)
+        {
+            animation.play("fall");
+        }
+        else if(velocity.x == 0)
+        {
+            animation.play("idle");
+        }
+        else 
+        {
+            // signOf returns -1 if value is negative and +1 if value is positive
+            // This if means essentially that player has just changed direction
+            if(FlxMath.signOf(velocity.x) != FlxMath.signOf(direction))
+            {
+                animation.play("skid");
+            }
+            else
+            {
+                animation.play("walk");
+            }
         }
     }
 }
