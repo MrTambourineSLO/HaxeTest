@@ -83,7 +83,15 @@ class Player extends  FlxSprite
             {
                 maxVelocity.x = WALK_SPEED;
             }
-
+        }
+        /**
+         *  If we release jump key before reaching max jump position
+         *  we halve player's velocity which will shorten jump height
+         *  A neat mechanic indeed.
+         */
+        if((velocity.y < 0) && (FlxG.keys.justReleased.C) )
+        {
+            velocity.y = velocity.y * 0.5;
         }
     }
 }
