@@ -12,6 +12,15 @@ import flixel.tile.FlxTilemap;
 // Contains some collision logic
 import flixel.FlxObject;
 import flixel.util.FlxColor;
+
+/*
+>Always run cmd / PS as an admin for haxe to work!
+
+>If we press F2 while playing we get a COOL debug screen !
+ We write to log by calling FlxG.log.add(); 
+ */
+
+
 class PlayState extends FlxState
 {
 	var map:FlxTilemap;
