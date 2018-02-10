@@ -61,13 +61,7 @@ class PlayState extends FlxState
 		 */
 		add(map);
 
-		// Initialize player @ 4th tile from the upper left corner ( 4 * 16 )
-		player = new FlxSprite(64,0);
-		// Create a red square 16x16
-		player.makeGraphic(16,16,FlxColor.RED);
-		// "Gravity"
-		player.acceleration.y = 420;
-
+		player = new Player(64,16);	
 		add(player);
 		super.create();
 	}
@@ -82,29 +76,6 @@ class PlayState extends FlxState
 			we can also pass a function when they collide - we'll see that later
 		*/
 		FlxG.collide(map,player);
-		movePlayer();
 	}
 
-	private function movePlayer() : Void
-	{
-		player.velocity.x = 0;
-		if(FlxG.keys.pressed.LEFT)
-		{
-			player.velocity.x -= 80;
-		}
-		if(FlxG.keys.pressed.RIGHT)
-		{
-			player.velocity.x += 80;
-		}
-		// isTouching returns true if sth is touching a player at that side 
-		/*
-			FLOOR == bottom side
-			WALL == left || right
-			CEILING == top 
-		*/
-		if(FlxG.keys.pressed.C && player.isTouching(FlxObject.FLOOR))
-		{
-			player.velocity.y = -200;
-		}
-	}
 }
