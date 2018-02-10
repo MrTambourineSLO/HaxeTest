@@ -1,6 +1,8 @@
 package;
 
+import flixel.FlxObject;
 import flixel.FlxSprite;
+import flixel.FlxG;
 
 class Player extends  FlxSprite
 {
@@ -45,6 +47,43 @@ class Player extends  FlxSprite
 
     override public function update(elapsed:Float) : Void
     {
+        move();
         super.update(elapsed);
+    }
+
+    private function move() : Void
+    {
+        acceleration.x = 0;
+        
+        if(FlxG.keys.pressed.LEFT)
+        {
+            flipX = true;
+            direction = -1;
+            acceleration.x -= ACCELERATION;
+        }        
+        if(FlxG.keys.pressed.RIGHT)
+        {
+            flipX = false;
+            direction = 1;
+            acceleration.x += ACCELERATION;
+        }
+        if(velocity.y == 0)
+        {
+            if(FlxG.keys.justPressed.C && isTouching(FlxObject.FLOOR))
+            {
+                velocity.y = JUMP_FORCE;
+            }
+            // We have to wrap running functionality inside this if statement
+            // otherwise we'd be able to fiddle w/ speed mid-air
+            if(FlxG.keys.pressed.X)
+            {
+                maxVelocity.x = RUN_SPEED;
+            }
+            else
+            {
+                maxVelocity.x = WALK_SPEED;
+            }
+
+        }
     }
 }
