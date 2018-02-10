@@ -15,10 +15,32 @@ class Player extends  FlxSprite
     private static inline var FALLING_SPEED : Int = 300;
 
     public var direction : Int = 1;
+    
     // CTOR
-    public function new()
+    public function new(x:Float, y:Float)
     {
-        super();
+        super(x,y);
+        // 16x16 -> size of a single frame of animation
+        loadGraphic(AssetPaths.player__png,true,16,16);
+        // Frame indices are calculated from left to right, top to bottom
+        animation.add("idle",[0]);
+        animation.add("walk",[1,2,3,2],12);
+        animation.add("skid",[4]);
+        animation.add("jump",[5]);
+        animation.add("fall",[5]);
+        animation.add("dead",[12]);
+        
+        // setSize adjusts the size of a HITBOX
+        setSize(8,12);
+        // since BoundingBox is calculated from bottom left we need OFFSET to
+        // place the HITBOX correctly
+        offset.set(4,4);
+        // drag is essentially friction
+        drag.x = DRAG;
+        acceleration.y = GRAVITY;
+        maxVelocity.set(WALK_SPEED,FALLING_SPEED);
+
+
     }
 
     override public function update(elapsed:Float) : Void
