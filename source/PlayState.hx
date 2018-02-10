@@ -11,7 +11,7 @@ import flixel.math.FlxMath;
 import flixel.tile.FlxTilemap;
 // Contains some collision logic
 import flixel.FlxObject;
-
+import flixel.util.FlxColor;
 class PlayState extends FlxState
 {
 	var map:FlxTilemap;
@@ -51,6 +51,15 @@ class PlayState extends FlxState
 		 *  When it's added it will become active (visible) when that state is played
 		 */
 		add(map);
+
+		// Initialize player @ 4th tile from the upper left corner ( 4 * 16 )
+		player = new FlxSprite(64,0);
+		// Create a red square 16x16
+		player.makeGraphic(16,16,FlxColor.RED);
+		// "Gravity"
+		player.acceleration.y = 420;
+
+		add(player);
 		super.create();
 	}
 
