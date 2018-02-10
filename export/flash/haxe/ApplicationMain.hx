@@ -132,10 +132,10 @@ class ApplicationMain {
 		config = {
 			
 			build: "1",
-			company: "HaxeFlixel",
-			file: "test-projcet",
+			company: "Trampihl Soft",
+			file: "haxeflixel-game",
 			fps: 60,
-			name: "test-projcet",
+			name: "HaxeFlixel Game",
 			orientation: "",
 			packageName: "com.example.myapp",
 			version: "0.0.1",
@@ -149,11 +149,11 @@ class ApplicationMain {
 					display: 0,
 					fullscreen: false,
 					hardware: true,
-					height: 480,
+					height: 360,
 					parameters: "{}",
 					resizable: true,
 					stencilBuffer: true,
-					title: "test-projcet",
+					title: "HaxeFlixel Game",
 					vsync: true,
 					width: 640,
 					x: null,
@@ -173,7 +173,7 @@ class ApplicationMain {
 		
 		#if (js && html5)
 		#if (munit || utest)
-		openfl.Lib.embed (null, 640, 480, "000000");
+		openfl.Lib.embed (null, 640, 360, "000000");
 		#end
 		#else
 		create ();

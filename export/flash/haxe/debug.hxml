@@ -14,11 +14,12 @@
 -D flash-use-stage
 -D no-compilation
 -D openfl-flash
+-D fdb
 -D web
 --macro flixel.system.macros.FlxDefines.run()
 -swf-lib export/flash/obj/assets.swf
 -swf-version 11.8
--swf export/flash/bin/test-projcet.swf
--swf-header 640:480:60:000000
+-swf export/flash/bin/haxeflixel-game.swf
+-swf-header 640:360:60:000000
 -cp export/flash/haxe
 -debug
