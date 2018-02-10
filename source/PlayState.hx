@@ -73,5 +73,29 @@ class PlayState extends FlxState
 			we can also pass a function when they collide - we'll see that later
 		*/
 		FlxG.collide(map,player);
+		movePlayer();
+	}
+
+	private function movePlayer() : Void
+	{
+		player.velocity.x = 0;
+		if(FlxG.keys.pressed.LEFT)
+		{
+			player.velocity.x -= 80;
+		}
+		if(FlxG.keys.pressed.RIGHT)
+		{
+			player.velocity.x += 80;
+		}
+		// isTouching returns true if sth is touching a player at that side 
+		/*
+			FLOOR == bottom side
+			WALL == left || right
+			CEILING == top 
+		*/
+		if(FlxG.keys.pressed.C && player.isTouching(FlxObject.FLOOR))
+		{
+			player.velocity.y = -200;
+		}
 	}
 }
