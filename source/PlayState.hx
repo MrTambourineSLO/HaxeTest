@@ -17,8 +17,11 @@ class PlayState extends FlxState
 	var map:FlxTilemap;
 	var player:FlxSprite;
 	/*
-	 * 0 - Empty space
-	 * 1 - Solid space 
+	 * 	0 - Empty space
+	 * 	1 - Solid space
+	 * 	We will use tiles.png as file to draw our map
+	 *  - Sprite index 0 will represent tile.png @ index 0
+	 *  - Sprite index 1 will represent  -||- 1
 	 */
 	var mapData:Array<Int> = 
 	[
@@ -37,6 +40,17 @@ class PlayState extends FlxState
 	];
 	override public function create():Void
 	{
+		map = new FlxTilemap();
+		/* 
+		- 20 * 12 => Number of tiles width * height
+		- 16 * 16 => width & height of tile in px
+		 */
+		map.loadMapFromArray(mapData,20,12,AssetPaths.tiles__png,16,16);
+		/**
+		 *  add => FlxGroup function - it tells an object that it belongs to a state (scene)
+		 *  When it's added it will become active (visible) when that state is played
+		 */
+		add(map);
 		super.create();
 	}
 
