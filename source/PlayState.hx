@@ -23,7 +23,7 @@ import flixel.util.FlxColor;
 
 class PlayState extends FlxState
 {
-	var map:FlxTilemap;
+	public var map:FlxTilemap;
 	var player:FlxSprite;
 	/*
 	 * 	0 - Empty space
