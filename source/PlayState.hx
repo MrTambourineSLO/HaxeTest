@@ -49,19 +49,11 @@ class PlayState extends FlxState
 	];
 	override public function create():Void
 	{
-		map = new FlxTilemap();
-		/* 
-		- 20 * 12 => Number of tiles width * height
-		- 16 * 16 => width & height of tile in px
-		 */
-		map.loadMapFromArray(mapData,20,12,AssetPaths.tiles__png,16,16);
-		/**
-		 *  add => FlxGroup function - it tells an object that it belongs to a state (scene)
-		 *  When it's added it will become active (visible) when that state is played
-		 */
-		add(map);
+	
 
 		player = new Player(64,16);	
+		LevelLoader.loadLevel(this,"playground");
+		
 		add(player);
 		super.create();
 	}

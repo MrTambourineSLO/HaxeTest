@@ -34,15 +34,7 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
-		urls.push ("assets/images/images-go-here.txt");
-		types.push (lime.Assets.AssetType.TEXT);
-		
-		
-		urls.push ("assets/music/music-goes-here.txt");
-		types.push (lime.Assets.AssetType.TEXT);
-		
-		
-		urls.push ("assets/sounds/sounds-go-here.txt");
+		urls.push ("assets/data/playground.tmx");
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
@@ -131,7 +123,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "1",
+			build: "50",
 			company: "Trampihl Soft",
 			file: "haxeflixel-game",
 			fps: 60,
@@ -149,13 +141,13 @@ class ApplicationMain {
 					display: 0,
 					fullscreen: false,
 					hardware: true,
-					height: 360,
+					height: 540,
 					parameters: "{}",
 					resizable: true,
 					stencilBuffer: true,
 					title: "HaxeFlixel Game",
 					vsync: true,
-					width: 640,
+					width: 960,
 					x: null,
 					y: null
 				},
@@ -173,7 +165,7 @@ class ApplicationMain {
 		
 		#if (js && html5)
 		#if (munit || utest)
-		openfl.Lib.embed (null, 640, 360, "000000");
+		openfl.Lib.embed (null, 960, 540, "000000");
 		#end
 		#else
 		create ();
