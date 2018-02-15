@@ -147,7 +147,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "60",
+			build: "12",
 			company: "Trampihl Soft",
 			file: "haxeflixel-game",
 			fps: 60,

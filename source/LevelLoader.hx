@@ -25,7 +25,6 @@ class LevelLoader
         // tiledMap.getLayer() reurns "generic" layer - could be "Object Layer" or "TiledLayer",
         // thus we cast it to make sure it's indeed TiledTileLayer
         var mainLayer : TiledTileLayer = cast tiledMap.getLayer("Main");
-
         state.map = new FlxTilemap();
 
         // Last argument is "Starting Index " - ie value used to offset the Id of the tile to draw

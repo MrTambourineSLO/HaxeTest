@@ -38,6 +38,30 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
+		urls.push ("assets/data/TileSet.tsx");
+		types.push (lime.Assets.AssetType.TEXT);
+		
+		
+		urls.push ("assets/images/images-go-here.txt");
+		types.push (lime.Assets.AssetType.TEXT);
+		
+		
+		urls.push ("assets/images/player.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/images/tiles.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("assets/music/music-goes-here.txt");
+		types.push (lime.Assets.AssetType.TEXT);
+		
+		
+		urls.push ("assets/sounds/sounds-go-here.txt");
+		types.push (lime.Assets.AssetType.TEXT);
+		
+		
 		urls.push ("flixel/sounds/beep.ogg");
 		types.push (lime.Assets.AssetType.SOUND);
 		
@@ -123,7 +147,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "52",
+			build: "11",
 			company: "Trampihl Soft",
 			file: "haxeflixel-game",
 			fps: 60,

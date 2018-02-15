@@ -1,5 +1,6 @@
 package;
 
+import flixel.FlxCamera.FlxCameraFollowStyle;
 import flixel.FlxState;
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -25,36 +26,22 @@ class PlayState extends FlxState
 {
 	public var map:FlxTilemap;
 	var player:FlxSprite;
-	/*
-	 * 	0 - Empty space
-	 * 	1 - Solid space
-	 * 	We will use tiles.png as file to draw our map
-	 *  - Sprite index 0 will represent tile.png @ index 0
-	 *  - Sprite index 1 will represent  -||- 1
-	 */
-	var mapData:Array<Int> = 
-	[
-		1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-		1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-		1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
-		1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,
-		1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,
-		1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,
-		1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,
-		1,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,
-		1,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,
-		1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-		1,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-		1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
-	];
+	
+	
 	override public function create():Void
 	{
 	
 
-		player = new Player(64,16);	
+		player = new Player(FlxG.width * 0.5,10);	
 		LevelLoader.loadLevel(this,"playground");
 		
 		add(player);
+
+		// PLATFORMER is dynamic camera - it'll move when when object gets closer to the edges
+		FlxG.camera.follow(player, FlxCameraFollowStyle.PLATFORMER);
+		// Define rectangular area where camera is allowed to scroll (it'll stop scrolling if
+		// eg player falls off a cliff)
+		FlxG.camera.setScrollBoundsRect(0,0,map.width,map.height,true);
 		super.create();
 	}
 
@@ -67,7 +54,7 @@ class PlayState extends FlxState
 			Very straightforward,
 			we can also pass a function when they collide - we'll see that later
 		*/
-		FlxG.collide(map,player);
+		FlxG.collide(this,player);
 	}
 
 }

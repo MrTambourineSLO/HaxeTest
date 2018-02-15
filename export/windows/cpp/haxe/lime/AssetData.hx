@@ -20,6 +20,18 @@ class AssetData {
 			type.set ("assets/data/data-goes-here.txt", Reflect.field (AssetType, "text".toUpperCase ()));
 			path.set ("assets/data/playground.tmx", "assets/data/playground.tmx");
 			type.set ("assets/data/playground.tmx", Reflect.field (AssetType, "text".toUpperCase ()));
+			path.set ("assets/data/TileSet.tsx", "assets/data/TileSet.tsx");
+			type.set ("assets/data/TileSet.tsx", Reflect.field (AssetType, "text".toUpperCase ()));
+			path.set ("assets/images/images-go-here.txt", "assets/images/images-go-here.txt");
+			type.set ("assets/images/images-go-here.txt", Reflect.field (AssetType, "text".toUpperCase ()));
+			path.set ("assets/images/player.png", "assets/images/player.png");
+			type.set ("assets/images/player.png", Reflect.field (AssetType, "image".toUpperCase ()));
+			path.set ("assets/images/tiles.png", "assets/images/tiles.png");
+			type.set ("assets/images/tiles.png", Reflect.field (AssetType, "image".toUpperCase ()));
+			path.set ("assets/music/music-goes-here.txt", "assets/music/music-goes-here.txt");
+			type.set ("assets/music/music-goes-here.txt", Reflect.field (AssetType, "text".toUpperCase ()));
+			path.set ("assets/sounds/sounds-go-here.txt", "assets/sounds/sounds-go-here.txt");
+			type.set ("assets/sounds/sounds-go-here.txt", Reflect.field (AssetType, "text".toUpperCase ()));
 			path.set ("flixel/sounds/beep.ogg", "flixel/sounds/beep.ogg");
 			type.set ("flixel/sounds/beep.ogg", Reflect.field (AssetType, "sound".toUpperCase ()));
 			path.set ("flixel/sounds/flixel.ogg", "flixel/sounds/flixel.ogg");
